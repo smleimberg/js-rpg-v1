@@ -1,0 +1,232 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+   background: #111;
+}
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+/*
+.impress-on-board .step {
+    opacity: 1;
+    cursor: pointer;
+}
+*/
+/***********custom stuff***********/
+
+#impress{
+    z-index: -100px;
+}
+#map{
+    width:9000px;
+    height: 9000px;
+}
+.space{
+    float: left;
+    background: url('imgs/BlockCSS.png') 100px 100px;
+}
+br{
+    clear: both;
+}
+.blank{
+    background: none;
+    width:50px;
+    height: 50px;
+}
+
+#healthBar{
+    height: 10px;
+    width: 200px;
+    background: #F00;
+}
+#magicBar{
+    height: 10px;
+    width: 200px;
+    background: #00F;
+}
+#staminaBar{
+    height: 10px;
+    width: 200px;
+    background: #0F0;
+}
+
+#topBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    background: #333;
+    color: #eee;
+    padding: 5px;
+    box-shadow: 0 0 10px #000;
+    z-index: 200px !important;
+}
+
+#bottomBar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    background: #333;
+    color: #eee;
+    padding: 5px;
+    box-shadow: 0 0 10px #000;
+    z-index: 200px !important;
+}
+
+#loading{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    font-size: 500%;
+    color: #fff;
+    z-index: 100;
+    opacity: 0.5;
+}
+
+.grass{
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-size: 768px 768px;
+    width:48px;
+    height:48px;
+    margin: 1px;
+}
+.item{
+    background: url('imgs/BlockCSS.png') 100px 100px;
+}
+.box{
+    background-position: -352px -32px;
+    background-size: 512px 512px;
+    width: 32px;
+    height: 32px;
+    overflow: visible;
+    position: relative;
+    top: -20px;
+    left: 9px;
+}
+.tree{
+    background-position: -640px -240px;
+    background-size: 1280px 1280px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: -40px;
+    left: -15px;
+}
+
+#token{
+    position: absolute;
+    top: -10px;
+    left: 2px;
+    background: url('imgs/linkwithoutshield.png') -50px 0px;
+    background-repeat: no-repeat;
+    background-size: 600px 400px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000 !important;
+}
+#token.n{
+    background-position: -50px -150px;
+}
+#token.nr{
+    background-position: 0px -150px;
+}
+#token.nl{
+    background-position: -100px -150px;
+}
+#token.s{
+    background-position: -50px 0px;
+}
+#token.sr{
+    background-position: 0px 0px;
+}
+#token.sl{
+    background-position: -100px 0px;
+}
+#token.e{
+    background-position: -50px -100px;
+}
+#token.er{
+    background-position: 0px -100px;
+}
+#token.el{
+    background-position: -100px -100px;
+}
+#token.w{
+    background-position: -50px -50px;
+}
+#token.wr{
+    background-position: 0px -50px;
+}
+#token.wl{
+    background-position: -100px -50px;
+}
+.hidden{
+    display: none;
+}
