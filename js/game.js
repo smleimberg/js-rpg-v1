@@ -1,6 +1,6 @@
 
 var hard ={
-    "gameStart":true
+    "gameStart":false
 }
 var character ={
     "page":"index.html",
@@ -9,12 +9,15 @@ var character ={
     "facing":"s",
     "foot":1
 };
-var animation = 150;
+
+var animation = 200;
 
 impress().goto(character.space);
 placeToken(character.id,character.facing);
 $(document).ready(function() {
-  $('#loading').addClass('fade-out');
+    $('#loading').animate({'opacity':0},1000,function(){
+        hard.gameStart=true;  
+    });
 });
 
 function move(key){
@@ -129,29 +132,27 @@ $(window).keydown(function(e) {
     //81=q 87=w e=69 r=82 a=65 s=83 d=68
     if(!$('#token').hasClass('moving') && hard.gameStart==true){
         $('#token').addClass('moving');
-        setTimeout(function() {
-            switch(e.keyCode){
-            case 65: //a=left
-                move('a');
-                break;
-            case 68: //d=right
-                move('d');
-                break;
-            case 81: //q=
-                
-                break;
-            case 69: //e=
-    
-                break;
-            case 83: //s=down
-                move('s');
-                break;
-            case 87: //w=up
-                move('w');
-                break;
-            default:
-            }
-        }, animation );
+        switch(e.keyCode){
+        case 65: //a=left
+            move('a');
+            break;
+        case 68: //d=right
+            move('d');
+            break;
+        case 81: //q=
+            
+            break;
+        case 69: //e=
+
+            break;
+        case 83: //s=down
+            move('s');
+            break;
+        case 87: //w=up
+            move('w');
+            break;
+        default:
+        }
     }
 });
 
