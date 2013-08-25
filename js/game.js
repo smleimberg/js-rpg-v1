@@ -7,10 +7,9 @@ var character ={
     "id":"#r5_c11",
     "space":111,
     "facing":"s",
-    "foot":1,
-    "moving":false
+    "foot":1
 };
-var animation = 200;
+var animation = 150;
 
 impress().goto(character.space);
 placeToken(character.id,character.facing);
@@ -95,41 +94,27 @@ function placeToken(id,dir,step,foot){
     if(step){
         switch(dir){
             case 'n':
-                $('#token').removeClass(dir).addClass(dir+foot);
+                $("#token").removeClass(dir).addClass(dir+foot);
                 $("#token").stop().animate({"top": "-=50px"}, animation, function(){
-                    $('#token').removeClass(dir+foot).addClass(dir);
-                    $('#token').remove();
-                    $(id).append('<div id="token" class="'+dir+'"></div>');
-                    character.moving=false;
+                    $(this).appendTo(id).removeAttr('class').removeAttr('style').addClass(dir);
+                });
+                break;
+            case 'w':
+                $("#token").removeClass(dir).addClass(dir+foot);
+                $("#token").stop().animate({"left": "-=50px"}, animation,function(){
+                    $(this).appendTo(id).removeAttr('class').removeAttr('style').addClass(dir);
                 });
                 break;
             case 's':
-                $('#token').remove();
-                $(id).append('<div id="token" class="'+dir+'"></div>');
-                $('#token').css('top','-=50px');
+                $("#token").appendTo(id).removeAttr('class').addClass('moving').addClass(dir+foot).css('top','-=50px');
                 $("#token").stop().animate({"top": "+=50px"}, animation,function(){
-                    $('#token').removeClass(dir+foot).addClass(dir);
-                    character.moving=false;
+                    $(this).removeAttr('class').addClass(dir);
                 });
-                $('#token').removeClass(dir).addClass(dir+foot);
                 break;
             case 'e':
-                $('#token').remove();
-                $(id).append('<div id="token" class="'+dir+'"></div>');
-                $('#token').css('left','-=50px');
+                $("#token").appendTo(id).removeAttr('class').addClass('moving').addClass(dir+foot).css('left','-=50px');
                 $("#token").stop().animate({"left": "+=50px"}, animation,function(){
-                    $('#token').removeClass(dir+foot).addClass(dir);
-                    character.moving=false;
-                });
-                $('#token').removeClass(dir).addClass(dir+foot);
-                break;
-            case 'w':
-                $('#token').removeClass(dir).addClass(dir+foot);
-                $("#token").stop().animate({"left": "-=50px"}, animation,function(){
-                    $('#token').removeClass(dir+foot).addClass(dir);
-                    $('#token').remove();
-                    $(id).append('<div id="token" class="'+dir+'"></div>');
-                    character.moving=false;
+                    $(this).removeAttr('class').addClass(dir);
                 });
                 break;
             default:;
@@ -142,33 +127,31 @@ function placeToken(id,dir,step,foot){
 
 $(window).keydown(function(e) {
     //81=q 87=w e=69 r=82 a=65 s=83 d=68
-    if(character.moving==false){
-        if(hard.gameStart==true){
-            character.moving=true;
-            setTimeout(function() {
-                switch(e.keyCode){
-                case 65: //a=left
-                    move('a');
-                    break;
-                case 68: //d=right
-                    move('d');
-                    break;
-                case 81: //q=
-                    
-                    break;
-                case 69: //e=
-        
-                    break;
-                case 83: //s=down
-                    move('s');
-                    break;
-                case 87: //w=up
-                    move('w');
-                    break;
-                default:
-                }
-            }, animation );
-        }
+    if(!$('#token').hasClass('moving') && hard.gameStart==true){
+        $('#token').addClass('moving');
+        setTimeout(function() {
+            switch(e.keyCode){
+            case 65: //a=left
+                move('a');
+                break;
+            case 68: //d=right
+                move('d');
+                break;
+            case 81: //q=
+                
+                break;
+            case 69: //e=
+    
+                break;
+            case 83: //s=down
+                move('s');
+                break;
+            case 87: //w=up
+                move('w');
+                break;
+            default:
+            }
+        }, animation );
     }
 });
 
