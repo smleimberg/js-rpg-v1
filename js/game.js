@@ -3,20 +3,19 @@ var hard ={
     "gameStart":false,
     "fog":false
 }
-var character ={
+var hero ={
     "id":"#token",
     "page":"game.html",
     "space_id":"#r5_c11",
-    "space_number":111,
     "facing":"s",
     "foot":'l'
 };
 
 $.cookie.json = true;
 if($.cookie('sml_rpg')){
-    character = $.cookie('sml_rpg');
+    hero = $.cookie('sml_rpg');
 }else{
-    $.cookie('sml_rpg',character,{expires:365});
+    $.cookie('sml_rpg',hero,{expires:365});
 }
 
 var animation = 200;
@@ -25,8 +24,8 @@ if(hard.fog){
     $('.space').addClass('hidden');
     hide(2);
 }
-impress().goto(character.space_number);
-$(character.space_id).append('<div id="token" class="'+character.facing+'"></div>');
+impress().goto(hero.space_id.replace('#',''));
+$(hero.space_id).append('<div id="'+hero.id.replace("#","")+'" class="'+hero.facing+'"></div>');
 $(document).ready(function() {
     $('#loading').animate({'opacity':0},1000,function(){
         hard.gameStart=true;
@@ -36,9 +35,9 @@ $(document).ready(function() {
 
 function hide(radius){
     if(hard.fog){
-        var currentId = $('.active').attr('id');
+        var currentId = hero.space_id;
         var currentSpace = currentId.split("_");
-        var row=parseInt(currentSpace[0].replace('r', ''), 10);
+        var row=parseInt(currentSpace[0].replace('#r', ''), 10);
         var col=parseInt(currentSpace[1].replace('c', ''), 10);
         console.log('start');
         if(radius<1){
@@ -54,7 +53,7 @@ function hide(radius){
     }
 }
 
-function get_next_space(key){
+function get_next_space(character,key){
     var nextId='';
     var next_col=0;
     var next_row=0;
@@ -80,65 +79,62 @@ function get_next_space(key){
     return nextId;
 }
 
-function use(key){
-    var nextId = get_next_space(key);
+function use(character){
+    var nextId = get_next_space(character,character.facing);
     if($(nextId+" .item").length > 0){
         alert('ITEM!');
     }
 }
 
-function move(key){
-    nextId = get_next_space(key);
+function move(character,key){
+    var nextId = get_next_space(character,key);
     if($(nextId).length > 0 && !$(nextId).hasClass('dead') && !$('#token').hasClass('moving') && hard.gameStart==true) {
-        var nextSpace=parseInt($(nextId).attr('num'), 10);
-        impress().goto(nextSpace);
+        impress().goto(nextId.replace('#',''));
         character.space_id=nextId;
-        character.space_number=nextSpace;
         $.cookie('sml_rpg',character,{expires:365});
         character.foot= (character.foot == 'r' ? 'l' : 'r');
         character.facing = key;
-        placeToken(character.space_id,character.facing,character.foot);
+        placeToken(character);
     }
     if($(nextId).hasClass('dead')){
-        $('#token').appendTo(character.space_id).removeAttr('class').addClass(key);
+        $(character.id).appendTo(character.space_id).removeAttr('class').addClass(key);
     }
 }
 
-function placeToken(id,dir,foot){
-    if(!$('#token').hasClass('moving') && hard.gameStart==true){
-        $('#token').removeAttr('class').addClass('moving').addClass(dir+foot);
-        switch(dir){
+function placeToken(character){
+    if(!$(character.id).hasClass('moving') && hard.gameStart==true){
+        $(character.id).removeAttr('class').addClass('moving').addClass(character.facing+''+character.foot);
+        switch(character.facing){
             case 'n':
-                $("#token").stop().animate({"top": "-=50px"}, animation, function(){
-                    $(this).appendTo(id).removeAttr('class').removeAttr('style').addClass(dir);
+                $(character.id).stop().animate({"top": "-=50px"}, animation, function(){
+                    $(this).appendTo(character.space_id).removeAttr('class').removeAttr('style').addClass(character.facing);
                 });
                 break;
             case 'w':
-                $("#token").stop().animate({"left": "-=50px"}, animation,function(){
-                    $(this).appendTo(id).removeAttr('class').removeAttr('style').addClass(dir);
+                $(character.id).stop().animate({"left": "-=50px"}, animation,function(){
+                    $(this).appendTo(character.space_id).removeAttr('class').removeAttr('style').addClass(character.facing);
                 });
                 break;
             case 's':
-                $("#token").appendTo(id).css('top','-=50px');
+                $(character.id).appendTo(character.space_id).css('top','-=50px');
                 $("#token").stop().animate({"top": "+=50px"}, animation,function(){
-                    $(this).removeAttr('class').addClass(dir);
+                    $(this).removeAttr('class').addClass(character.facing);
                 });
                 break;
             case 'e':
-                $("#token").appendTo(id).css('left','-=50px');
-                $("#token").stop().animate({"left": "+=50px"}, animation,function(){
-                    $(this).removeAttr('class').addClass(dir);
+                $(character.id).appendTo(character.space_id).css('left','-=50px');
+                $(character.id).stop().animate({"left": "+=50px"}, animation,function(){
+                    $(this).removeAttr('class').addClass(character.facing);
                 });
                 break;
             default:;
         }
-        if($(id+' .step-event').length > 0){
-            var classList =$(id+' .step-event').attr('class').split(/\s+/);
+        if($(character.space_id+' .step-event').length > 0){
+            var classList =$(character.space_id+' .step-event').attr('class').split(/\s+/);
             $.each( classList, function(index, item){
-                if (item === 'portal') {
-                    character.space_id=$(id+' .step-event.'+item).data('portal-id');
-                    character.space_number=$(id+' .step-event.'+item).data('portal-number');
-                    character.page=$(id+' .step-event.'+item).data('url');
+                if (item == 'portal') {
+                    character.page=$(character.space_id+' .step-event.'+item).data('url');
+                    character.space_id=$(character.space_id+' .step-event.'+item).data('portal-id');
                     $.cookie('sml_rpg',character,{expires:365});
                     console.log($.cookie('sml_rpg'));
                     window.location = character.page;
@@ -152,22 +148,22 @@ $(window).keydown(function(e) {
     //81=q 87=w e=69 r=82 a=65 s=83 d=68
     switch(e.keyCode){
     case 65: //a=left
-        move('w');
+        move(hero,'w');
         break;
     case 68: //d=right
-        move('e');
+        move(hero,'e');
         break;
     case 81: //q=
         
         break;
     case 69: //e=
-        use(character.facing);
+        use(hero);
         break;
     case 83: //s=down
-        move('s');
+        move(hero,'s');
         break;
     case 87: //w=up
-        move('n');
+        move(hero,'n');
         break;
     default:
     }
