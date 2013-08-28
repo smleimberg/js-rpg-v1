@@ -89,6 +89,15 @@ body {
     background: #000;
     opacity: 1;
 }
+#loading.done{
+    position: fixed;
+    height: 0;
+    width: 0;
+    z-index: -1;
+    background: transparent;
+    opacity: 0;
+    display: none;
+}
 #map{
     width:9000px;
     height: 9000px;
@@ -96,6 +105,9 @@ body {
 .space{
     float: left;
     background: url('imgs/BlockCSS.png') 100px 100px;
+    width:48px;
+    height:48px;
+    margin: 1px;
 }
 br{
     clear: both;
@@ -105,14 +117,10 @@ br{
     width:50px;
     height: 50px;
 }
-
 .grass{
     background-position: 0px 0px;
     background-repeat: no-repeat;
     background-size: 768px 768px;
-    width:48px;
-    height:48px;
-    margin: 1px;
 }
 .item{
     background: url('imgs/BlockCSS.png') 100px 100px;
@@ -124,7 +132,7 @@ br{
     height: 32px;
     overflow: visible;
     position: relative;
-    top: -20px;
+    top: 7px;
     left: 9px;
 }
 .tree{

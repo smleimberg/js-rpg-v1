@@ -1,10 +1,10 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <link href="style.css" rel="stylesheet" />
     <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
 </head>
 
 <body class="impress-not-supported" >
@@ -17,29 +17,29 @@
 <div id="loading"></div>
 
 <div id="impress">
-<div id="r0_c0" num="0" class="step space hidden dead" data-x="0" data-y="0" data-scale="1"></div>
-<div id="r0_c1" num="1" class="step space hidden dead" data-x="50" data-y="0" data-scale="1"></div>
-<div id="r0_c2" num="2" class="step space hidden dead" data-x="100" data-y="0" data-scale="1"></div>
-<div id="r0_c3" num="3" class="step space hidden dead" data-x="150" data-y="0" data-scale="1"></div>
+<div id="r0_c0" num="0" class="step space blank dead" data-x="0" data-y="0" data-scale="1"></div>
+<div id="r0_c1" num="1" class="step space blank dead" data-x="50" data-y="0" data-scale="1"></div>
+<div id="r0_c2" num="2" class="step space blank dead" data-x="100" data-y="0" data-scale="1"></div>
+<div id="r0_c3" num="3" class="step space blank dead" data-x="150" data-y="0" data-scale="1"></div>
 <div id="r0_c4" num="4" class="step space grass dead" data-x="200" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c5" num="5" class="step space grass dead" data-x="250" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c6" num="6" class="step space grass dead" data-x="300" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c7" num="7" class="step space grass dead" data-x="350" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c8" num="8" class="step space grass dead" data-x="400" data-y="0" data-scale="1"><div class="item tree"></div></div>
-<div id="r0_c9" num="9" class="step space grass" data-x="450" data-y="0" data-scale="1"></div>
-<div id="r0_c10" num="10" class="step space grass" data-x="500" data-y="0" data-scale="1"></div>
+<div id="r0_c9" num="9" class="step space blank" data-x="450" data-y="0" data-scale="1"><div class="portal step-event" data-url="game2.html" data-portal-id="#r2_c2" data-portal-number="14"></div></div>
+<div id="r0_c10" num="10" class="step space blank" data-x="500" data-y="0" data-scale="1"><div class="portal step-event" data-url="game2.html" data-portal-id="#r2_c3" data-portal-number="15"></div></div>
 <div id="r0_c11" num="11" class="step space grass dead" data-x="550" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c12" num="12" class="step space grass dead" data-x="600" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c13" num="13" class="step space grass dead" data-x="650" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c14" num="14" class="step space grass dead" data-x="700" data-y="0" data-scale="1"><div class="item tree"></div></div>
 <div id="r0_c15" num="15" class="step space grass dead" data-x="750" data-y="0" data-scale="1"><div class="item tree"></div></div>
-<div id="r0_c16" num="16" class="step space hidden dead" data-x="800" data-y="0" data-scale="1"></div>
-<div id="r0_c17" num="17" class="step space hidden dead" data-x="850" data-y="0" data-scale="1"></div>
-<div id="r0_c18" num="18" class="step space hidden dead" data-x="900" data-y="0" data-scale="1"></div>
-<div id="r0_c19" num="19" class="step space hidden dead" data-x="950" data-y="0" data-scale="1"></div>
-<div id="r1_c0" num="20" class="step space hidden dead" data-x="0" data-y="50" data-scale="1"></div>
-<div id="r1_c1" num="21" class="step space hidden dead" data-x="50" data-y="50" data-scale="1"></div>
-<div id="r1_c2" num="22" class="step space hidden dead" data-x="100" data-y="50" data-scale="1"></div>
+<div id="r0_c16" num="16" class="step space blank dead" data-x="800" data-y="0" data-scale="1"></div>
+<div id="r0_c17" num="17" class="step space blank dead" data-x="850" data-y="0" data-scale="1"></div>
+<div id="r0_c18" num="18" class="step space blank dead" data-x="900" data-y="0" data-scale="1"></div>
+<div id="r0_c19" num="19" class="step space blank dead" data-x="950" data-y="0" data-scale="1"></div>
+<div id="r1_c0" num="20" class="step space blank dead" data-x="0" data-y="50" data-scale="1"></div>
+<div id="r1_c1" num="21" class="step space blank dead" data-x="50" data-y="50" data-scale="1"></div>
+<div id="r1_c2" num="22" class="step space blank dead" data-x="100" data-y="50" data-scale="1"></div>
 <div id="r1_c3" num="23" class="step space grass dead" data-x="150" data-y="50" data-scale="1"><div class="item tree"></div></div>
 <div id="r1_c4" num="24" class="step space grass dead" data-x="200" data-y="50" data-scale="1"><div class="item tree"></div></div>
 <div id="r1_c5" num="25" class="step space grass dead" data-x="250" data-y="50" data-scale="1"><div class="item tree"></div></div>
@@ -54,11 +54,11 @@
 <div id="r1_c14" num="34" class="step space grass dead" data-x="700" data-y="50" data-scale="1"><div class="item tree"></div></div>
 <div id="r1_c15" num="35" class="step space grass dead" data-x="750" data-y="50" data-scale="1"><div class="item tree"></div></div>
 <div id="r1_c16" num="36" class="step space grass dead" data-x="800" data-y="50" data-scale="1"><div class="item tree"></div></div>
-<div id="r1_c17" num="37" class="step space hidden dead" data-x="850" data-y="50" data-scale="1"></div>
-<div id="r1_c18" num="38" class="step space hidden dead" data-x="900" data-y="50" data-scale="1"></div>
-<div id="r1_c19" num="39" class="step space hidden dead" data-x="950" data-y="50" data-scale="1"></div>
-<div id="r2_c0" num="40" class="step space hidden dead" data-x="0" data-y="100" data-scale="1"></div>
-<div id="r2_c1" num="41" class="step space hidden dead" data-x="50" data-y="100" data-scale="1"></div>
+<div id="r1_c17" num="37" class="step space blank dead" data-x="850" data-y="50" data-scale="1"></div>
+<div id="r1_c18" num="38" class="step space blank dead" data-x="900" data-y="50" data-scale="1"></div>
+<div id="r1_c19" num="39" class="step space blank dead" data-x="950" data-y="50" data-scale="1"></div>
+<div id="r2_c0" num="40" class="step space blank dead" data-x="0" data-y="100" data-scale="1"></div>
+<div id="r2_c1" num="41" class="step space blank dead" data-x="50" data-y="100" data-scale="1"></div>
 <div id="r2_c2" num="42" class="step space grass dead" data-x="100" data-y="100" data-scale="1"><div class="item tree"></div></div>
 <div id="r2_c3" num="43" class="step space grass dead" data-x="150" data-y="100" data-scale="1"><div class="item tree"></div></div>
 <div id="r2_c4" num="44" class="step space grass dead" data-x="200" data-y="100" data-scale="1"><div class="item tree"></div></div>
@@ -75,9 +75,9 @@
 <div id="r2_c15" num="55" class="step space grass dead" data-x="750" data-y="100" data-scale="1"><div class="item tree"></div></div>
 <div id="r2_c16" num="56" class="step space grass dead" data-x="800" data-y="100" data-scale="1"><div class="item tree"></div></div>
 <div id="r2_c17" num="57" class="step space grass dead" data-x="850" data-y="100" data-scale="1"><div class="item tree"></div></div>
-<div id="r2_c18" num="58" class="step space hidden dead" data-x="900" data-y="100" data-scale="1"></div>
-<div id="r2_c19" num="59" class="step space hidden dead" data-x="950" data-y="100" data-scale="1"></div>
-<div id="r3_c0" num="60" class="step space hidden dead" data-x="0" data-y="150" data-scale="1"></div>
+<div id="r2_c18" num="58" class="step space blank dead" data-x="900" data-y="100" data-scale="1"></div>
+<div id="r2_c19" num="59" class="step space blank dead" data-x="950" data-y="100" data-scale="1"></div>
+<div id="r3_c0" num="60" class="step space blank dead" data-x="0" data-y="150" data-scale="1"></div>
 <div id="r3_c1" num="61" class="step space grass dead" data-x="50" data-y="150" data-scale="1"><div class="item tree"></div></div>
 <div id="r3_c2" num="62" class="step space grass dead" data-x="100" data-y="150" data-scale="1"><div class="item tree"></div></div>
 <div id="r3_c3" num="63" class="step space grass dead" data-x="150" data-y="150" data-scale="1"><div class="item tree"></div></div>
@@ -96,7 +96,7 @@
 <div id="r3_c16" num="76" class="step space grass dead" data-x="800" data-y="150" data-scale="1"><div class="item tree"></div></div>
 <div id="r3_c17" num="77" class="step space grass dead" data-x="850" data-y="150" data-scale="1"><div class="item tree"></div></div>
 <div id="r3_c18" num="78" class="step space grass dead" data-x="900" data-y="150" data-scale="1"><div class="item tree"></div></div>
-<div id="r3_c19" num="79" class="step space hidden dead" data-x="950" data-y="150" data-scale="1"></div>
+<div id="r3_c19" num="79" class="step space blank dead" data-x="950" data-y="150" data-scale="1"></div>
 <div id="r4_c0" num="80" class="step space grass dead" data-x="0" data-y="200" data-scale="1"><div class="item tree"></div></div>
 <div id="r4_c1" num="81" class="step space grass dead" data-x="50" data-y="200" data-scale="1"><div class="item tree"></div></div>
 <div id="r4_c2" num="82" class="step space grass dead" data-x="100" data-y="200" data-scale="1"><div class="item tree"></div></div>
@@ -331,7 +331,7 @@
 <div id="r15_c11" num="311" class="step space grass" data-x="550" data-y="750" data-scale="1"></div>
 <div id="r15_c12" num="312" class="step space grass" data-x="600" data-y="750" data-scale="1"></div>
 <div id="r15_c13" num="313" class="step space grass" data-x="650" data-y="750" data-scale="1"></div>
-<div id="r15_c14" num="314" class="step space grass" data-x="700" data-y="750" data-scale="1"><div class="item box"></div></div>
+<div id="r15_c14" num="314" class="step space grass dead" data-x="700" data-y="750" data-scale="1"><div class="item box"></div></div>
 <div id="r15_c15" num="315" class="step space grass" data-x="750" data-y="750" data-scale="1"></div>
 <div id="r15_c16" num="316" class="step space grass" data-x="800" data-y="750" data-scale="1"></div>
 <div id="r15_c17" num="317" class="step space grass dead" data-x="850" data-y="750" data-scale="1"><div class="item tree"></div></div>
