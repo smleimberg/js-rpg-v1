@@ -88,6 +88,11 @@ body {
     z-index: 9999;
     background: #000;
     opacity: 1;
+    text-align: center;
+    color: #FFF;
+    font-size: 40px;
+    padding: 10px 0;
+    font-family: helvetica;
 }
 #loading.done{
     position: fixed;
@@ -104,28 +109,76 @@ body {
 }
 .space{
     float: left;
-    background: url('imgs/BlockCSS.png') 100px 100px;
-    width:48px;
-    height:48px;
-    margin: 1px;
+    background: url('imgs/forest1.png');
+    background-size: 750px 400px;
+    background-repeat: no-repeat;
+    width:50px;
+    height:50px;
+    margin: 0px;
 }
 br{
     clear: both;
 }
 .blank{
     background: none;
-    width:50px;
+    width: 50px;
     height: 50px;
 }
 .grass{
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
-    background-size: 768px 768px;
+    background-position: 0px -200px;
 }
-.item{
-    background: url('imgs/BlockCSS.png') 100px 100px;
+.grass.tl{
+    background-position: -75px -325px;
+}
+.grass.tm{
+    background-position: -81.25px -325px;
+}
+.grass.tr{
+    background-position: -100px -325px;
+}
+.grass.bl{
+    background-position: -75px -350px;
+}
+.grass.br{
+    background-position: -100px -350px;
+}
+.fence{
+    background: url('imgs/fences.png');
+    background-repeat: no-repeat;
+    background-size: 200px 450px;
+    height: 50px;
+    width: 50px;
+    margin-top: 0px;
+}
+.fence.tl{
+    background-position: 0px  -50px ;
+}
+.fence.tm{
+    background-position: -100px  0px ;
+}
+.fence.tr{
+    background-position: -50px -50px ;
+}
+.fence.bl{
+    background-position: 0px -100px ;
+}
+.fence.bm{
+    background-position: -100px  0px ;
+}
+.fence.br{
+    background-position: -50px -100px ;
+}
+.fence.m{
+    background-position: -100px -50px ;
+}
+.fence.le{
+    background-position: -150px -50px ;
+}
+.fence.re{
+    background-position: -150px 0px ;
 }
 .box{
+    background: url('imgs/BlockCSS.png') 100px 100px;
     background-position: -352px -32px;
     background-size: 512px 512px;
     width: 32px;
@@ -136,13 +189,14 @@ br{
     left: 9px;
 }
 .tree{
-    background-position: -640px -240px;
-    background-size: 1280px 1280px;
-    width: 80px;
-    height: 80px;
+    background: url('imgs/fbuspackoftilesets/AncientForest/outsidebforest.png');
+    background-position: -300px -300px;
+    background-size: 600px 600px;
+    width: 75px;
+    height: 75px;
     position: relative;
-    top: -40px;
-    left: -15px;
+    top: -37.5px;
+    left: -18.75px;
 }
 
 #token{

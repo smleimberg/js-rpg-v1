@@ -21,7 +21,7 @@ function spaceName(space){
     switch(space){
         case 'g': return 'grass';
         case 'f': return 'fence';
-        case 't': return 'grass dead';
+        case 't': return 'grass';
         case 'b': return 'grass';
         default: return 'blank';
     }

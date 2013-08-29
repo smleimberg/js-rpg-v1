@@ -1,8 +1,429 @@
-<html>
-    <head>
-        <script src="js/game.js"></script>
-    </head>
-    <body>
-        <p><a href="game.html" onclick="centeredPopup(this.href,'WEB RPG','600','600','yes');return false">Play</a></p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+</head>
+
+<body class="impress-not-supported" >
+
+<div class="fallback-message">
+    <p>Your browser doesn't support the features required.</p>
+    <p>For the best gaming experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser, and enable JavaScript.</p>
+</div>
+
+<div id="loading"><h1>Loading...</h1></div>
+
+<div id="impress">
+<div id="r0_c0" class="step space blank dead" data-x="0" data-y="0" data-scale="1"></div>
+<div id="r0_c1" class="step space blank dead" data-x="50" data-y="0" data-scale="1"></div>
+<div id="r0_c2" class="step space blank dead" data-x="100" data-y="0" data-scale="1"></div>
+<div id="r0_c3" class="step space blank dead" data-x="150" data-y="0" data-scale="1"></div>
+<div id="r0_c4" class="step space grass dead" data-x="200" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c5" class="step space grass dead" data-x="250" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c6" class="step space grass dead" data-x="300" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c7" class="step space grass dead" data-x="350" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c8" class="step space grass dead" data-x="400" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c9" class="step space blank" data-x="450" data-y="0" data-scale="1"><div class="portal step-event" data-url="/rpg/game2.html" data-portal-id="#r2_c2" data-portal-number="14"></div></div>
+<div id="r0_c10" class="step space blank" data-x="500" data-y="0" data-scale="1"><div class="portal step-event" data-url="/rpg/game2.html" data-portal-id="#r2_c3" data-portal-number="15"></div></div>
+<div id="r0_c11" class="step space grass dead" data-x="550" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c12" class="step space grass dead" data-x="600" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c13" class="step space grass dead" data-x="650" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c14" class="step space grass dead" data-x="700" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c15" class="step space grass dead" data-x="750" data-y="0" data-scale="1"><div class="item tree"></div></div>
+<div id="r0_c16" class="step space blank dead" data-x="800" data-y="0" data-scale="1"></div>
+<div id="r0_c17" class="step space blank dead" data-x="850" data-y="0" data-scale="1"></div>
+<div id="r0_c18" class="step space blank dead" data-x="900" data-y="0" data-scale="1"></div>
+<div id="r0_c19" class="step space blank dead" data-x="950" data-y="0" data-scale="1"></div>
+<div id="r1_c0" class="step space blank dead" data-x="0" data-y="50" data-scale="1"></div>
+<div id="r1_c1" class="step space blank dead" data-x="50" data-y="50" data-scale="1"></div>
+<div id="r1_c2" class="step space blank dead" data-x="100" data-y="50" data-scale="1"></div>
+<div id="r1_c3" class="step space grass dead" data-x="150" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c4" class="step space grass dead" data-x="200" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c5" class="step space grass dead" data-x="250" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c6" class="step space grass dead" data-x="300" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c7" class="step space grass dead" data-x="350" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c8" class="step space grass dead" data-x="400" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c9" class="step space grass" data-x="450" data-y="50" data-scale="1"></div>
+<div id="r1_c10" class="step space grass" data-x="500" data-y="50" data-scale="1"></div>
+<div id="r1_c11" class="step space grass dead" data-x="550" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c12" class="step space grass dead" data-x="600" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c13" class="step space grass dead" data-x="650" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c14" class="step space grass dead" data-x="700" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c15" class="step space grass dead" data-x="750" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c16" class="step space grass dead" data-x="800" data-y="50" data-scale="1"><div class="item tree"></div></div>
+<div id="r1_c17" class="step space blank dead" data-x="850" data-y="50" data-scale="1"></div>
+<div id="r1_c18" class="step space blank dead" data-x="900" data-y="50" data-scale="1"></div>
+<div id="r1_c19" class="step space blank dead" data-x="950" data-y="50" data-scale="1"></div>
+<div id="r2_c0" class="step space blank dead" data-x="0" data-y="100" data-scale="1"></div>
+<div id="r2_c1" class="step space blank dead" data-x="50" data-y="100" data-scale="1"></div>
+<div id="r2_c2" class="step space grass dead" data-x="100" data-y="100" data-scale="1"><div class="item tree"></div></div>
+<div id="r2_c3" class="step space grass dead" data-x="150" data-y="100" data-scale="1"><div class="item tree"></div></div>
+<div id="r2_c4" class="step space grass dead" data-x="200" data-y="100" data-scale="1"><div class="item tree"></div></div>
+<div id="r2_c5" class="step space grass" data-x="250" data-y="100" data-scale="1"></div>
+<div id="r2_c6" class="step space grass" data-x="300" data-y="100" data-scale="1"></div>
+<div id="r2_c7" class="step space grass" data-x="350" data-y="100" data-scale="1"></div>
+<div id="r2_c8" class="step space grass" data-x="400" data-y="100" data-scale="1"></div>
+<div id="r2_c9" class="step space grass" data-x="450" data-y="100" data-scale="1"></div>
+<div id="r2_c10" class="step space grass" data-x="500" data-y="100" data-scale="1"></div>
+<div id="r2_c11" class="step space grass" data-x="550" data-y="100" data-scale="1"></div>
+<div id="r2_c12" class="step space grass" data-x="600" data-y="100" data-scale="1"></div>
+<div id="r2_c13" class="step space grass" data-x="650" data-y="100" data-scale="1"></div>
+<div id="r2_c14" class="step space grass" data-x="700" data-y="100" data-scale="1"></div>
+<div id="r2_c15" class="step space grass dead" data-x="750" data-y="100" data-scale="1"><div class="item tree"></div></div>
+<div id="r2_c16" class="step space grass dead" data-x="800" data-y="100" data-scale="1"><div class="item tree"></div></div>
+<div id="r2_c17" class="step space grass dead" data-x="850" data-y="100" data-scale="1"><div class="item tree"></div></div>
+<div id="r2_c18" class="step space blank dead" data-x="900" data-y="100" data-scale="1"></div>
+<div id="r2_c19" class="step space blank dead" data-x="950" data-y="100" data-scale="1"></div>
+<div id="r3_c0" class="step space blank dead" data-x="0" data-y="150" data-scale="1"></div>
+<div id="r3_c1" class="step space grass dead" data-x="50" data-y="150" data-scale="1"><div class="item tree"></div></div>
+<div id="r3_c2" class="step space grass dead" data-x="100" data-y="150" data-scale="1"><div class="item tree"></div></div>
+<div id="r3_c3" class="step space grass dead" data-x="150" data-y="150" data-scale="1"><div class="item tree"></div></div>
+<div id="r3_c4" class="step space grass" data-x="200" data-y="150" data-scale="1"></div>
+<div id="r3_c5" class="step space grass" data-x="250" data-y="150" data-scale="1"></div>
+<div id="r3_c6" class="step space grass" data-x="300" data-y="150" data-scale="1"></div>
+<div id="r3_c7" class="step space grass" data-x="350" data-y="150" data-scale="1"></div>
+<div id="r3_c8" class="step space grass" data-x="400" data-y="150" data-scale="1"></div>
+<div id="r3_c9" class="step space grass" data-x="450" data-y="150" data-scale="1"></div>
+<div id="r3_c10" class="step space grass" data-x="500" data-y="150" data-scale="1"></div>
+<div id="r3_c11" class="step space grass" data-x="550" data-y="150" data-scale="1"></div>
+<div id="r3_c12" class="step space grass" data-x="600" data-y="150" data-scale="1"></div>
+<div id="r3_c13" class="step space grass" data-x="650" data-y="150" data-scale="1"></div>
+<div id="r3_c14" class="step space grass" data-x="700" data-y="150" data-scale="1"></div>
+<div id="r3_c15" class="step space grass" data-x="750" data-y="150" data-scale="1"></div>
+<div id="r3_c16" class="step space grass dead" data-x="800" data-y="150" data-scale="1"><div class="item tree"></div></div>
+<div id="r3_c17" class="step space grass dead" data-x="850" data-y="150" data-scale="1"><div class="item tree"></div></div>
+<div id="r3_c18" class="step space grass dead" data-x="900" data-y="150" data-scale="1"><div class="item tree"></div></div>
+<div id="r3_c19" class="step space blank dead" data-x="950" data-y="150" data-scale="1"></div>
+<div id="r4_c0" class="step space grass dead" data-x="0" data-y="200" data-scale="1"><div class="item tree"></div></div>
+<div id="r4_c1" class="step space grass dead" data-x="50" data-y="200" data-scale="1"><div class="item tree"></div></div>
+<div id="r4_c2" class="step space grass dead" data-x="100" data-y="200" data-scale="1"><div class="item tree"></div></div>
+<div id="r4_c3" class="step space grass" data-x="150" data-y="200" data-scale="1"></div>
+<div id="r4_c4" class="step space grass" data-x="200" data-y="200" data-scale="1"></div>
+<div id="r4_c5" class="step space grass" data-x="250" data-y="200" data-scale="1"></div>
+<div id="r4_c6" class="step space grass" data-x="300" data-y="200" data-scale="1"></div>
+<div id="r4_c7" class="step space grass" data-x="350" data-y="200" data-scale="1"></div>
+<div id="r4_c8" class="step space grass" data-x="400" data-y="200" data-scale="1"></div>
+<div id="r4_c9" class="step space grass" data-x="450" data-y="200" data-scale="1"></div>
+<div id="r4_c10" class="step space grass" data-x="500" data-y="200" data-scale="1"></div>
+<div id="r4_c11" class="step space grass" data-x="550" data-y="200" data-scale="1"></div>
+<div id="r4_c12" class="step space grass" data-x="600" data-y="200" data-scale="1"></div>
+<div id="r4_c13" class="step space grass" data-x="650" data-y="200" data-scale="1"></div>
+<div id="r4_c14" class="step space grass" data-x="700" data-y="200" data-scale="1"></div>
+<div id="r4_c15" class="step space grass" data-x="750" data-y="200" data-scale="1"></div>
+<div id="r4_c16" class="step space grass" data-x="800" data-y="200" data-scale="1"></div>
+<div id="r4_c17" class="step space grass dead" data-x="850" data-y="200" data-scale="1"><div class="item tree"></div></div>
+<div id="r4_c18" class="step space grass dead" data-x="900" data-y="200" data-scale="1"><div class="item tree"></div></div>
+<div id="r4_c19" class="step space grass dead" data-x="950" data-y="200" data-scale="1"><div class="item tree"></div></div>
+<div id="r5_c0" class="step space grass dead" data-x="0" data-y="250" data-scale="1"><div class="item tree"></div></div>
+<div id="r5_c1" class="step space grass dead" data-x="50" data-y="250" data-scale="1"><div class="item tree"></div></div>
+<div id="r5_c2" class="step space grass" data-x="100" data-y="250" data-scale="1"></div>
+<div id="r5_c3" class="step space grass" data-x="150" data-y="250" data-scale="1"></div>
+<div id="r5_c4" class="step space grass" data-x="200" data-y="250" data-scale="1"></div>
+<div id="r5_c5" class="step space grass" data-x="250" data-y="250" data-scale="1"></div>
+<div id="r5_c6" class="step space grass" data-x="300" data-y="250" data-scale="1"></div>
+<div id="r5_c7" class="step space grass" data-x="350" data-y="250" data-scale="1"></div>
+<div id="r5_c8" class="step space grass tl" data-x="400" data-y="250" data-scale="1"></div>
+<div id="r5_c9" class="step space grass tr" data-x="450" data-y="250" data-scale="1"></div>
+<div id="r5_c10" class="step space grass " data-x="500" data-y="250" data-scale="1"></div>
+<div id="r5_c11" class="step space grass" data-x="550" data-y="250" data-scale="1"></div>
+<div id="r5_c12" class="step space grass" data-x="600" data-y="250" data-scale="1"></div>
+<div id="r5_c13" class="step space grass" data-x="650" data-y="250" data-scale="1"></div>
+<div id="r5_c14" class="step space grass" data-x="700" data-y="250" data-scale="1"></div>
+<div id="r5_c15" class="step space grass" data-x="750" data-y="250" data-scale="1"></div>
+<div id="r5_c16" class="step space grass" data-x="800" data-y="250" data-scale="1"></div>
+<div id="r5_c17" class="step space grass" data-x="850" data-y="250" data-scale="1"></div>
+<div id="r5_c18" class="step space grass dead" data-x="900" data-y="250" data-scale="1"><div class="item tree"></div></div>
+<div id="r5_c19" class="step space grass dead" data-x="950" data-y="250" data-scale="1"><div class="item tree"></div></div>
+<div id="r6_c0" class="step space grass dead" data-x="0" data-y="300" data-scale="1"><div class="item tree"></div></div>
+<div id="r6_c1" class="step space grass dead" data-x="50" data-y="300" data-scale="1"><div class="item tree"></div></div>
+<div id="r6_c2" class="step space grass" data-x="100" data-y="300" data-scale="1"></div>
+<div id="r6_c3" class="step space grass" data-x="150" data-y="300" data-scale="1"></div>
+<div id="r6_c4" class="step space grass" data-x="200" data-y="300" data-scale="1"></div>
+<div id="r6_c5" class="step space grass" data-x="250" data-y="300" data-scale="1"></div>
+<div id="r6_c6" class="step space grass" data-x="300" data-y="300" data-scale="1"></div>
+<div id="r6_c7" class="step space grass" data-x="350" data-y="300" data-scale="1"></div>
+<div id="r6_c8" class="step space grass bl" data-x="400" data-y="300" data-scale="1"></div>
+<div id="r6_c9" class="step space grass br" data-x="450" data-y="300" data-scale="1"></div>
+<div id="r6_c10" class="step space grass " data-x="500" data-y="300" data-scale="1"></div>
+<div id="r6_c11" class="step space grass" data-x="550" data-y="300" data-scale="1"></div>
+<div id="r6_c12" class="step space grass dead" data-x="600" data-y="300" data-scale="1"><div class="item fence le"></div></div>
+<div id="r6_c13" class="step space grass dead" data-x="650" data-y="300" data-scale="1"><div class="item fence tm"></div></div>
+<div id="r6_c14" class="step space grass dead" data-x="700" data-y="300" data-scale="1"><div class="item fence tr"></div></div>
+<div id="r6_c15" class="step space grass" data-x="750" data-y="300" data-scale="1"></div>
+<div id="r6_c16" class="step space grass" data-x="800" data-y="300" data-scale="1"></div>
+<div id="r6_c17" class="step space grass" data-x="850" data-y="300" data-scale="1"></div>
+<div id="r6_c18" class="step space grass dead" data-x="900" data-y="300" data-scale="1"><div class="item tree"></div></div>
+<div id="r6_c19" class="step space grass dead" data-x="950" data-y="300" data-scale="1"><div class="item tree"></div></div>
+<div id="r7_c0" class="step space grass dead" data-x="0" data-y="350" data-scale="1"><div class="item tree"></div></div>
+<div id="r7_c1" class="step space grass dead" data-x="50" data-y="350" data-scale="1"><div class="item tree"></div></div>
+<div id="r7_c2" class="step space grass" data-x="100" data-y="350" data-scale="1"></div>
+<div id="r7_c3" class="step space grass" data-x="150" data-y="350" data-scale="1"></div>
+<div id="r7_c4" class="step space grass" data-x="200" data-y="350" data-scale="1"></div>
+<div id="r7_c5" class="step space grass" data-x="250" data-y="350" data-scale="1"></div>
+<div id="r7_c6" class="step space grass" data-x="300" data-y="350" data-scale="1"></div>
+<div id="r7_c7" class="step space grass" data-x="350" data-y="350" data-scale="1"></div>
+<div id="r7_c8" class="step space grass" data-x="400" data-y="350" data-scale="1"></div>
+<div id="r7_c9" class="step space grass" data-x="450" data-y="350" data-scale="1"></div>
+<div id="r7_c10" class="step space grass" data-x="500" data-y="350" data-scale="1"></div>
+<div id="r7_c11" class="step space grass" data-x="550" data-y="350" data-scale="1"></div>
+<div id="r7_c12" class="step space grass" data-x="600" data-y="350" data-scale="1"></div>
+<div id="r7_c13" class="step space grass" data-x="650" data-y="350" data-scale="1"></div>
+<div id="r7_c14" class="step space grass dead" data-x="700" data-y="350" data-scale="1"><div class="item fence m"></div></div>
+<div id="r7_c15" class="step space grass" data-x="750" data-y="350" data-scale="1"></div>
+<div id="r7_c16" class="step space grass" data-x="800" data-y="350" data-scale="1"></div>
+<div id="r7_c17" class="step space grass" data-x="850" data-y="350" data-scale="1"></div>
+<div id="r7_c18" class="step space grass dead" data-x="900" data-y="350" data-scale="1"><div class="item tree"></div></div>
+<div id="r7_c19" class="step space grass dead" data-x="950" data-y="350" data-scale="1"><div class="item tree"></div></div>
+<div id="r8_c0" class="step space grass dead" data-x="0" data-y="400" data-scale="1"><div class="item tree"></div></div>
+<div id="r8_c1" class="step space grass dead" data-x="50" data-y="400" data-scale="1"><div class="item tree"></div></div>
+<div id="r8_c2" class="step space grass" data-x="100" data-y="400" data-scale="1"></div>
+<div id="r8_c3" class="step space grass" data-x="150" data-y="400" data-scale="1"></div>
+<div id="r8_c4" class="step space grass" data-x="200" data-y="400" data-scale="1"></div>
+<div id="r8_c5" class="step space grass" data-x="250" data-y="400" data-scale="1"></div>
+<div id="r8_c6" class="step space grass" data-x="300" data-y="400" data-scale="1"></div>
+<div id="r8_c7" class="step space grass" data-x="350" data-y="400" data-scale="1"></div>
+<div id="r8_c8" class="step space grass" data-x="400" data-y="400" data-scale="1"></div>
+<div id="r8_c9" class="step space grass" data-x="450" data-y="400" data-scale="1"></div>
+<div id="r8_c10" class="step space grass" data-x="500" data-y="400" data-scale="1"></div>
+<div id="r8_c11" class="step space grass" data-x="550" data-y="400" data-scale="1"></div>
+<div id="r8_c12" class="step space grass dead" data-x="600" data-y="400" data-scale="1"><div class="item fence le"></div></div>
+<div id="r8_c13" class="step space grass dead" data-x="650" data-y="400" data-scale="1"><div class="item fence bm"></div></div>
+<div id="r8_c14" class="step space grass dead" data-x="700" data-y="400" data-scale="1"><div class="item fence br"></div></div>
+<div id="r8_c15" class="step space grass" data-x="750" data-y="400" data-scale="1"></div>
+<div id="r8_c16" class="step space grass" data-x="800" data-y="400" data-scale="1"></div>
+<div id="r8_c17" class="step space grass" data-x="850" data-y="400" data-scale="1"></div>
+<div id="r8_c18" class="step space grass dead" data-x="900" data-y="400" data-scale="1"><div class="item tree"></div></div>
+<div id="r8_c19" class="step space grass dead" data-x="950" data-y="400" data-scale="1"><div class="item tree"></div></div>
+<div id="r9_c0" class="step space grass dead" data-x="0" data-y="450" data-scale="1"><div class="item tree"></div></div>
+<div id="r9_c1" class="step space grass dead" data-x="50" data-y="450" data-scale="1"><div class="item tree"></div></div>
+<div id="r9_c2" class="step space grass" data-x="100" data-y="450" data-scale="1"></div>
+<div id="r9_c3" class="step space grass" data-x="150" data-y="450" data-scale="1"></div>
+<div id="r9_c4" class="step space grass" data-x="200" data-y="450" data-scale="1"></div>
+<div id="r9_c5" class="step space grass" data-x="250" data-y="450" data-scale="1"></div>
+<div id="r9_c6" class="step space grass" data-x="300" data-y="450" data-scale="1"></div>
+<div id="r9_c7" class="step space grass" data-x="350" data-y="450" data-scale="1"></div>
+<div id="r9_c8" class="step space grass" data-x="400" data-y="450" data-scale="1"></div>
+<div id="r9_c9" class="step space grass" data-x="450" data-y="450" data-scale="1"></div>
+<div id="r9_c10" class="step space grass" data-x="500" data-y="450" data-scale="1"></div>
+<div id="r9_c11" class="step space grass" data-x="550" data-y="450" data-scale="1"></div>
+<div id="r9_c12" class="step space grass" data-x="600" data-y="450" data-scale="1"></div>
+<div id="r9_c13" class="step space grass" data-x="650" data-y="450" data-scale="1"></div>
+<div id="r9_c14" class="step space grass" data-x="700" data-y="450" data-scale="1"></div>
+<div id="r9_c15" class="step space grass" data-x="750" data-y="450" data-scale="1"></div>
+<div id="r9_c16" class="step space grass" data-x="800" data-y="450" data-scale="1"></div>
+<div id="r9_c17" class="step space grass" data-x="850" data-y="450" data-scale="1"></div>
+<div id="r9_c18" class="step space grass dead" data-x="900" data-y="450" data-scale="1"><div class="item tree"></div></div>
+<div id="r9_c19" class="step space grass dead" data-x="950" data-y="450" data-scale="1"><div class="item tree"></div></div>
+<div id="r10_c0" class="step space grass dead" data-x="0" data-y="500" data-scale="1"><div class="item tree"></div></div>
+<div id="r10_c1" class="step space grass dead" data-x="50" data-y="500" data-scale="1"><div class="item tree"></div></div>
+<div id="r10_c2" class="step space grass" data-x="100" data-y="500" data-scale="1"></div>
+<div id="r10_c3" class="step space grass" data-x="150" data-y="500" data-scale="1"></div>
+<div id="r10_c4" class="step space grass" data-x="200" data-y="500" data-scale="1"></div>
+<div id="r10_c5" class="step space grass" data-x="250" data-y="500" data-scale="1"></div>
+<div id="r10_c6" class="step space grass" data-x="300" data-y="500" data-scale="1"></div>
+<div id="r10_c7" class="step space grass" data-x="350" data-y="500" data-scale="1"></div>
+<div id="r10_c8" class="step space grass" data-x="400" data-y="500" data-scale="1"></div>
+<div id="r10_c9" class="step space grass" data-x="450" data-y="500" data-scale="1"></div>
+<div id="r10_c10" class="step space grass" data-x="500" data-y="500" data-scale="1"></div>
+<div id="r10_c11" class="step space grass" data-x="550" data-y="500" data-scale="1"></div>
+<div id="r10_c12" class="step space grass" data-x="600" data-y="500" data-scale="1"></div>
+<div id="r10_c13" class="step space grass" data-x="650" data-y="500" data-scale="1"></div>
+<div id="r10_c14" class="step space grass" data-x="700" data-y="500" data-scale="1"></div>
+<div id="r10_c15" class="step space grass" data-x="750" data-y="500" data-scale="1"></div>
+<div id="r10_c16" class="step space grass" data-x="800" data-y="500" data-scale="1"></div>
+<div id="r10_c17" class="step space grass" data-x="850" data-y="500" data-scale="1"></div>
+<div id="r10_c18" class="step space grass dead" data-x="900" data-y="500" data-scale="1"><div class="item tree"></div></div>
+<div id="r10_c19" class="step space grass dead" data-x="950" data-y="500" data-scale="1"><div class="item tree"></div></div>
+<div id="r11_c0" class="step space grass dead" data-x="0" data-y="550" data-scale="1"><div class="item tree"></div></div>
+<div id="r11_c1" class="step space grass dead" data-x="50" data-y="550" data-scale="1"><div class="item tree"></div></div>
+<div id="r11_c2" class="step space grass" data-x="100" data-y="550" data-scale="1"></div>
+<div id="r11_c3" class="step space grass" data-x="150" data-y="550" data-scale="1"></div>
+<div id="r11_c4" class="step space grass" data-x="200" data-y="550" data-scale="1"></div>
+<div id="r11_c5" class="step space grass" data-x="250" data-y="550" data-scale="1"></div>
+<div id="r11_c6" class="step space grass" data-x="300" data-y="550" data-scale="1"></div>
+<div id="r11_c7" class="step space grass" data-x="350" data-y="550" data-scale="1"></div>
+<div id="r11_c8" class="step space grass" data-x="400" data-y="550" data-scale="1"></div>
+<div id="r11_c9" class="step space grass" data-x="450" data-y="550" data-scale="1"></div>
+<div id="r11_c10" class="step space grass" data-x="500" data-y="550" data-scale="1"></div>
+<div id="r11_c11" class="step space grass" data-x="550" data-y="550" data-scale="1"></div>
+<div id="r11_c12" class="step space grass" data-x="600" data-y="550" data-scale="1"></div>
+<div id="r11_c13" class="step space grass" data-x="650" data-y="550" data-scale="1"></div>
+<div id="r11_c14" class="step space grass" data-x="700" data-y="550" data-scale="1"></div>
+<div id="r11_c15" class="step space grass" data-x="750" data-y="550" data-scale="1"></div>
+<div id="r11_c16" class="step space grass" data-x="800" data-y="550" data-scale="1"></div>
+<div id="r11_c17" class="step space grass" data-x="850" data-y="550" data-scale="1"></div>
+<div id="r11_c18" class="step space grass dead" data-x="900" data-y="550" data-scale="1"><div class="item tree"></div></div>
+<div id="r11_c19" class="step space grass dead" data-x="950" data-y="550" data-scale="1"><div class="item tree"></div></div>
+<div id="r12_c0" class="step space grass dead" data-x="0" data-y="600" data-scale="1"><div class="item tree"></div></div>
+<div id="r12_c1" class="step space grass dead" data-x="50" data-y="600" data-scale="1"><div class="item tree"></div></div>
+<div id="r12_c2" class="step space grass" data-x="100" data-y="600" data-scale="1"></div>
+<div id="r12_c3" class="step space grass" data-x="150" data-y="600" data-scale="1"></div>
+<div id="r12_c4" class="step space grass" data-x="200" data-y="600" data-scale="1"></div>
+<div id="r12_c5" class="step space grass" data-x="250" data-y="600" data-scale="1"></div>
+<div id="r12_c6" class="step space grass" data-x="300" data-y="600" data-scale="1"></div>
+<div id="r12_c7" class="step space grass" data-x="350" data-y="600" data-scale="1"></div>
+<div id="r12_c8" class="step space grass" data-x="400" data-y="600" data-scale="1"></div>
+<div id="r12_c9" class="step space grass" data-x="450" data-y="600" data-scale="1"></div>
+<div id="r12_c10" class="step space grass" data-x="500" data-y="600" data-scale="1"></div>
+<div id="r12_c11" class="step space grass" data-x="550" data-y="600" data-scale="1"></div>
+<div id="r12_c12" class="step space grass" data-x="600" data-y="600" data-scale="1"></div>
+<div id="r12_c13" class="step space grass" data-x="650" data-y="600" data-scale="1"></div>
+<div id="r12_c14" class="step space grass" data-x="700" data-y="600" data-scale="1"></div>
+<div id="r12_c15" class="step space grass" data-x="750" data-y="600" data-scale="1"></div>
+<div id="r12_c16" class="step space grass" data-x="800" data-y="600" data-scale="1"></div>
+<div id="r12_c17" class="step space grass" data-x="850" data-y="600" data-scale="1"></div>
+<div id="r12_c18" class="step space grass dead" data-x="900" data-y="600" data-scale="1"><div class="item tree"></div></div>
+<div id="r12_c19" class="step space grass dead" data-x="950" data-y="600" data-scale="1"><div class="item tree"></div></div>
+<div id="r13_c0" class="step space grass dead" data-x="0" data-y="650" data-scale="1"><div class="item tree"></div></div>
+<div id="r13_c1" class="step space grass dead" data-x="50" data-y="650" data-scale="1"><div class="item tree"></div></div>
+<div id="r13_c2" class="step space grass" data-x="100" data-y="650" data-scale="1"></div>
+<div id="r13_c3" class="step space grass" data-x="150" data-y="650" data-scale="1"></div>
+<div id="r13_c4" class="step space grass" data-x="200" data-y="650" data-scale="1"></div>
+<div id="r13_c5" class="step space grass" data-x="250" data-y="650" data-scale="1"></div>
+<div id="r13_c6" class="step space grass" data-x="300" data-y="650" data-scale="1"></div>
+<div id="r13_c7" class="step space grass" data-x="350" data-y="650" data-scale="1"></div>
+<div id="r13_c8" class="step space grass" data-x="400" data-y="650" data-scale="1"></div>
+<div id="r13_c9" class="step space grass" data-x="450" data-y="650" data-scale="1"></div>
+<div id="r13_c10" class="step space grass" data-x="500" data-y="650" data-scale="1"></div>
+<div id="r13_c11" class="step space grass" data-x="550" data-y="650" data-scale="1"></div>
+<div id="r13_c12" class="step space grass" data-x="600" data-y="650" data-scale="1"></div>
+<div id="r13_c13" class="step space grass" data-x="650" data-y="650" data-scale="1"></div>
+<div id="r13_c14" class="step space grass" data-x="700" data-y="650" data-scale="1"></div>
+<div id="r13_c15" class="step space grass" data-x="750" data-y="650" data-scale="1"></div>
+<div id="r13_c16" class="step space grass" data-x="800" data-y="650" data-scale="1"></div>
+<div id="r13_c17" class="step space grass" data-x="850" data-y="650" data-scale="1"></div>
+<div id="r13_c18" class="step space grass dead" data-x="900" data-y="650" data-scale="1"><div class="item tree"></div></div>
+<div id="r13_c19" class="step space grass dead" data-x="950" data-y="650" data-scale="1"><div class="item tree"></div></div>
+<div id="r14_c0" class="step space grass dead" data-x="0" data-y="700" data-scale="1"><div class="item tree"></div></div>
+<div id="r14_c1" class="step space grass dead" data-x="50" data-y="700" data-scale="1"><div class="item tree"></div></div>
+<div id="r14_c2" class="step space grass" data-x="100" data-y="700" data-scale="1"></div>
+<div id="r14_c3" class="step space grass" data-x="150" data-y="700" data-scale="1"></div>
+<div id="r14_c4" class="step space grass" data-x="200" data-y="700" data-scale="1"></div>
+<div id="r14_c5" class="step space grass" data-x="250" data-y="700" data-scale="1"></div>
+<div id="r14_c6" class="step space grass" data-x="300" data-y="700" data-scale="1"></div>
+<div id="r14_c7" class="step space grass" data-x="350" data-y="700" data-scale="1"></div>
+<div id="r14_c8" class="step space grass" data-x="400" data-y="700" data-scale="1"></div>
+<div id="r14_c9" class="step space grass" data-x="450" data-y="700" data-scale="1"></div>
+<div id="r14_c10" class="step space grass" data-x="500" data-y="700" data-scale="1"></div>
+<div id="r14_c11" class="step space grass" data-x="550" data-y="700" data-scale="1"></div>
+<div id="r14_c12" class="step space grass" data-x="600" data-y="700" data-scale="1"></div>
+<div id="r14_c13" class="step space grass" data-x="650" data-y="700" data-scale="1"></div>
+<div id="r14_c14" class="step space grass" data-x="700" data-y="700" data-scale="1"></div>
+<div id="r14_c15" class="step space grass" data-x="750" data-y="700" data-scale="1"></div>
+<div id="r14_c16" class="step space grass" data-x="800" data-y="700" data-scale="1"></div>
+<div id="r14_c17" class="step space grass" data-x="850" data-y="700" data-scale="1"></div>
+<div id="r14_c18" class="step space grass dead" data-x="900" data-y="700" data-scale="1"><div class="item tree"></div></div>
+<div id="r14_c19" class="step space grass dead" data-x="950" data-y="700" data-scale="1"><div class="item tree"></div></div>
+<div id="r15_c0" class="step space grass dead" data-x="0" data-y="750" data-scale="1"><div class="item tree"></div></div>
+<div id="r15_c1" class="step space grass dead" data-x="50" data-y="750" data-scale="1"><div class="item tree"></div></div>
+<div id="r15_c2" class="step space grass dead" data-x="100" data-y="750" data-scale="1"><div class="item tree"></div></div>
+<div id="r15_c3" class="step space grass" data-x="150" data-y="750" data-scale="1"></div>
+<div id="r15_c4" class="step space grass" data-x="200" data-y="750" data-scale="1"></div>
+<div id="r15_c5" class="step space grass" data-x="250" data-y="750" data-scale="1"></div>
+<div id="r15_c6" class="step space grass" data-x="300" data-y="750" data-scale="1"></div>
+<div id="r15_c7" class="step space grass" data-x="350" data-y="750" data-scale="1"></div>
+<div id="r15_c8" class="step space grass" data-x="400" data-y="750" data-scale="1"></div>
+<div id="r15_c9" class="step space grass" data-x="450" data-y="750" data-scale="1"></div>
+<div id="r15_c10" class="step space grass" data-x="500" data-y="750" data-scale="1"></div>
+<div id="r15_c11" class="step space grass" data-x="550" data-y="750" data-scale="1"></div>
+<div id="r15_c12" class="step space grass" data-x="600" data-y="750" data-scale="1"></div>
+<div id="r15_c13" class="step space grass" data-x="650" data-y="750" data-scale="1"></div>
+<div id="r15_c14" class="step space grass" data-x="700" data-y="750" data-scale="1"></div>
+<div id="r15_c15" class="step space grass" data-x="750" data-y="750" data-scale="1"></div>
+<div id="r15_c16" class="step space grass" data-x="800" data-y="750" data-scale="1"></div>
+<div id="r15_c17" class="step space grass dead" data-x="850" data-y="750" data-scale="1"><div class="item tree"></div></div>
+<div id="r15_c18" class="step space grass dead" data-x="900" data-y="750" data-scale="1"><div class="item tree"></div></div>
+<div id="r15_c19" class="step space grass dead" data-x="950" data-y="750" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c0" class="step space grass dead" data-x="0" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c1" class="step space grass dead" data-x="50" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c2" class="step space grass dead" data-x="100" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c3" class="step space grass dead" data-x="150" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c4" class="step space grass" data-x="200" data-y="800" data-scale="1"></div>
+<div id="r16_c5" class="step space grass" data-x="250" data-y="800" data-scale="1"></div>
+<div id="r16_c6" class="step space grass" data-x="300" data-y="800" data-scale="1"></div>
+<div id="r16_c7" class="step space grass" data-x="350" data-y="800" data-scale="1"></div>
+<div id="r16_c8" class="step space grass" data-x="400" data-y="800" data-scale="1"></div>
+<div id="r16_c9" class="step space grass" data-x="450" data-y="800" data-scale="1"></div>
+<div id="r16_c10" class="step space grass" data-x="500" data-y="800" data-scale="1"></div>
+<div id="r16_c11" class="step space grass" data-x="550" data-y="800" data-scale="1"></div>
+<div id="r16_c12" class="step space grass" data-x="600" data-y="800" data-scale="1"></div>
+<div id="r16_c13" class="step space grass" data-x="650" data-y="800" data-scale="1"></div>
+<div id="r16_c14" class="step space grass" data-x="700" data-y="800" data-scale="1"></div>
+<div id="r16_c15" class="step space grass" data-x="750" data-y="800" data-scale="1"></div>
+<div id="r16_c16" class="step space grass dead" data-x="800" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c17" class="step space grass dead" data-x="850" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r16_c18" class="step space grass dead" data-x="900" data-y="800" data-scale="1"><div class="item box"></div></div>
+<div id="r16_c19" class="step space grass dead" data-x="950" data-y="800" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c0" class="step space grass dead" data-x="0" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c1" class="step space grass dead" data-x="50" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c2" class="step space grass dead" data-x="100" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c3" class="step space grass dead" data-x="150" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c4" class="step space grass dead" data-x="200" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c5" class="step space grass" data-x="250" data-y="850" data-scale="1"></div>
+<div id="r17_c6" class="step space grass" data-x="300" data-y="850" data-scale="1"></div>
+<div id="r17_c7" class="step space grass" data-x="350" data-y="850" data-scale="1"></div>
+<div id="r17_c8" class="step space grass" data-x="400" data-y="850" data-scale="1"></div>
+<div id="r17_c9" class="step space grass" data-x="450" data-y="850" data-scale="1"></div>
+<div id="r17_c10" class="step space grass" data-x="500" data-y="850" data-scale="1"></div>
+<div id="r17_c11" class="step space grass" data-x="550" data-y="850" data-scale="1"></div>
+<div id="r17_c12" class="step space grass" data-x="600" data-y="850" data-scale="1"></div>
+<div id="r17_c13" class="step space grass" data-x="650" data-y="850" data-scale="1"></div>
+<div id="r17_c14" class="step space grass" data-x="700" data-y="850" data-scale="1"></div>
+<div id="r17_c15" class="step space grass dead" data-x="750" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c16" class="step space grass dead" data-x="800" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c17" class="step space grass dead" data-x="850" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r17_c18" class="step space grass" data-x="900" data-y="850" data-scale="1"></div>
+<div id="r17_c19" class="step space grass dead" data-x="950" data-y="850" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c0" class="step space grass dead" data-x="0" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c1" class="step space grass dead" data-x="50" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c2" class="step space grass dead" data-x="100" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c3" class="step space grass dead" data-x="150" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c4" class="step space grass dead" data-x="200" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c5" class="step space grass dead" data-x="250" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c6" class="step space grass dead" data-x="300" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c7" class="step space grass dead" data-x="350" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c8" class="step space grass dead" data-x="400" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c9" class="step space grass dead" data-x="450" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c10" class="step space grass dead" data-x="500" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c11" class="step space grass dead" data-x="550" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c12" class="step space grass dead" data-x="600" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c13" class="step space grass dead" data-x="650" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r18_c14" class="step space grass" data-x="700" data-y="900" data-scale="1"></div>
+<div id="r18_c15" class="step space grass" data-x="750" data-y="900" data-scale="1"></div>
+<div id="r18_c16" class="step space grass" data-x="800" data-y="900" data-scale="1"></div>
+<div id="r18_c17" class="step space grass" data-x="850" data-y="900" data-scale="1"></div>
+<div id="r18_c18" class="step space grass" data-x="900" data-y="900" data-scale="1"></div>
+<div id="r18_c19" class="step space grass dead" data-x="950" data-y="900" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c0" class="step space grass dead" data-x="0" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c1" class="step space grass dead" data-x="50" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c2" class="step space grass dead" data-x="100" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c3" class="step space grass dead" data-x="150" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c4" class="step space grass dead" data-x="200" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c5" class="step space grass dead" data-x="250" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c6" class="step space grass dead" data-x="300" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c7" class="step space grass dead" data-x="350" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c8" class="step space grass dead" data-x="400" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c9" class="step space grass dead" data-x="450" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c10" class="step space grass dead" data-x="500" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c11" class="step space grass dead" data-x="550" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c12" class="step space grass dead" data-x="600" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c13" class="step space grass dead" data-x="650" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c14" class="step space grass dead" data-x="700" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c15" class="step space grass dead" data-x="750" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c16" class="step space grass dead" data-x="800" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c17" class="step space grass dead" data-x="850" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c18" class="step space grass dead" data-x="900" data-y="950" data-scale="1"><div class="item tree"></div></div>
+<div id="r19_c19" class="step space grass dead" data-x="950" data-y="950" data-scale="1"><div class="item tree"></div></div>
+</div>
+
+<script type="text/javascript" src="js/impress.js"></script>
+<script type="text/javascript">impress().init();</script>
+<script type="text/javascript" src="js/game.js"></script>
+
+</body>
 </html>
+
+

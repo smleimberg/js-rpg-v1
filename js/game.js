@@ -1,11 +1,12 @@
 
 var hard ={
     "gameStart":false,
+    "movement":50,
     "fog":false
 }
 var hero ={
     "id":"#token",
-    "page":"game.html",
+    "page":"/rpg/index.html",
     "space_id":"#r5_c11",
     "facing":"s",
     "foot":'l'
@@ -14,6 +15,10 @@ var hero ={
 $.cookie.json = true;
 if($.cookie('sml_rpg')){
     hero = $.cookie('sml_rpg');
+    url = document.URL.replace(location.protocol + '//' + location.host,'').split('#')[0];
+    if(url != hero.page){
+        window.location = hero.page;
+    }
 }else{
     $.cookie('sml_rpg',hero,{expires:365});
 }
@@ -22,11 +27,11 @@ var animation = 200;
 
 if(hard.fog){
     $('.space').addClass('hidden');
-    hide(2);
+    hide(10);
 }
 impress().goto(hero.space_id.replace('#',''));
 $(hero.space_id).append('<div id="'+hero.id.replace("#","")+'" class="'+hero.facing+'"></div>');
-$(document).ready(function() {
+$(window).load(function() {
     $('#loading').animate({'opacity':0},1000,function(){
         hard.gameStart=true;
         $(this).addClass('done');
@@ -35,6 +40,7 @@ $(document).ready(function() {
 
 function hide(radius){
     if(hard.fog){
+        $('.space').addClass('hidden');
         var currentId = hero.space_id;
         var currentSpace = currentId.split("_");
         var row=parseInt(currentSpace[0].replace('#r', ''), 10);
@@ -94,7 +100,9 @@ function move(character,key){
         $.cookie('sml_rpg',character,{expires:365});
         character.foot= (character.foot == 'r' ? 'l' : 'r');
         character.facing = key;
+        
         placeToken(character);
+        hide(10);
     }
     if($(nextId).hasClass('dead')){
         $(character.id).appendTo(character.space_id).removeAttr('class').addClass(key);
@@ -106,24 +114,24 @@ function placeToken(character){
         $(character.id).removeAttr('class').addClass('moving').addClass(character.facing+''+character.foot);
         switch(character.facing){
             case 'n':
-                $(character.id).stop().animate({"top": "-=50px"}, animation, function(){
+                $(character.id).stop().animate({"top": "-="+hard.movement+"px"}, animation, function(){
                     $(this).appendTo(character.space_id).removeAttr('class').removeAttr('style').addClass(character.facing);
                 });
                 break;
             case 'w':
-                $(character.id).stop().animate({"left": "-=50px"}, animation,function(){
+                $(character.id).stop().animate({"left": "-="+hard.movement+"px"}, animation,function(){
                     $(this).appendTo(character.space_id).removeAttr('class').removeAttr('style').addClass(character.facing);
                 });
                 break;
             case 's':
-                $(character.id).appendTo(character.space_id).css('top','-=50px');
-                $("#token").stop().animate({"top": "+=50px"}, animation,function(){
+                $(character.id).appendTo(character.space_id).css('top','-='+hard.movement+'px');
+                $("#token").stop().animate({"top": "+="+hard.movement+"px"}, animation,function(){
                     $(this).removeAttr('class').addClass(character.facing);
                 });
                 break;
             case 'e':
-                $(character.id).appendTo(character.space_id).css('left','-=50px');
-                $(character.id).stop().animate({"left": "+=50px"}, animation,function(){
+                $(character.id).appendTo(character.space_id).css('left','-='+hard.movement+'px');
+                $(character.id).stop().animate({"left": "+="+hard.movement+"px"}, animation,function(){
                     $(this).removeAttr('class').addClass(character.facing);
                 });
                 break;

@@ -198,12 +198,12 @@
     
     // some default config values.
     var defaults = {
-        width: 1024,
-        height: 768,
+        width: 500,
+        height: 500,
         maxScale: 1,
         minScale: 0,
         
-        perspective: 1000,
+        perspective: 500,
         
         transitionDuration: 200
     };
@@ -652,7 +652,7 @@
 // its simple API.
 //
 // In future I think about moving it to make them optional, move to separate files
-// and treat more like a 'plugins'.
+/*// and treat more like a 'plugins'.
 (function ( document, window ) {
     'use strict';
     
@@ -790,7 +790,7 @@
     }, false);
         
 })(document, window);
-
+*/
 // THAT'S ALL FOLKS!
 //
 // Thanks for reading it all.
